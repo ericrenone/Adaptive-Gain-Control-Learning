@@ -46,11 +46,6 @@ The visualization tracks three key metrics across 100 optimization steps:
 ## Theoretical Foundations
 
 Both optimization regimes minimize the variational free energy:
-```
-F = E_q[log q - log p]
-```
-
-Where `q` is the learned distribution and `p` is the true (target) distribution.
 
 - **Purification** reduces KL by direct geometric correction
 - **Annealing** achieves the same via sensitivity reduction
