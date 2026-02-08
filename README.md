@@ -41,7 +41,7 @@ A coupled system where:
 
 • Path A is the explorer, and Path B is the map-maker.
 
-• Path B represents true adaptive learning, robust across seeds and instances, while Path A demonstrates why naive gradient drift fails in noisy environments.
+• Path B represents adaptive learning, while Path A demonstrates why naive gradient drift fails in noisy environments.
 
 • This creates a self-regulating learning process.
 
