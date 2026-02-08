@@ -1,44 +1,132 @@
 # Dual-Path Lambda Learning  
-### Functional Variational Convergence via KL Drift and Adaptive Gain Control
+### Functional Adaptive Convergence via Drift Minimization and Gain Control
 
-This repository implements a **functional dynamical learning system** that compares two optimization pathways:
+This repository implements a **minimal functional learning system** that compares two fundamentally different optimization dynamics:
 
-1. **Pure drift minimization** via gradient descent  
-2. **Adaptive gain-controlled learning** via annealed sensitivity dynamics  
+• Standard gradient drift minimization  
+• Adaptive gain-controlled learning with internal sensitivity decay  
 
-The system is expressed using **immutable lambda-style state transitions** and evaluated through **information-theoretic convergence metrics** (KL divergence) alongside classical loss.
+The system is built entirely from **immutable lambda-style state transitions**, turning learning into a clean dynamical process rather than imperative parameter mutation.
+
+Convergence is evaluated using **information-theoretic drift (KL divergence)** alongside prediction error.
 
 ---
 
-## 📌 Core Idea
+## 🔍 Core Concept
 
-Learning is modeled as a **discrete-time dynamical system**:
+Learning is modeled as a deterministic state machine:
 
-- State evolves through **pure functional transformations**
-- No imperative mutation in learning logic
-- Convergence measured against a known probabilistic ground truth
+Each update step:
 
-Two paths operate in parallel:
+1. Observes noisy data sampled from a true underlying distribution  
+2. Computes an error signal relative to the current internal belief  
+3. Applies pure functional transitions to produce the next state  
 
-### Path A — Representation Purification (Drift Minimization)
+Two learning pathways operate in parallel:
 
-\[
-\theta_{t+1} = \theta_t - \eta \nabla F
-\]
+### Path A — Drift Minimization
 
-### Path B — Sensitivity Annealing (Adaptive Gain Control)
+A classic gradient descent dynamic that directly adjusts the internal representation toward observed data.
 
-\[
-\theta_{t+1} = \theta_t - \eta \alpha_t \nabla F
-\]
-\[
-\alpha_{t+1} = \alpha_t \cdot \lambda
-\]
+### Path B — Adaptive Gain Control
 
-where:
+A coupled system where:
 
-- \( \theta \) is the inferred mean  
-- \( \alpha \) is a self-regulating sensitivity parameter  
-- \( \lambda \) is a decay factor  
+• The representation is updated  
+• A sensitivity (gain) parameter scales learning intensity  
+• The gain decays over time, stabilizing convergence  
+
+This creates a self-regulating learning process.
+
+---
+
+## 🧠 Functional Architecture
+
+All learning behavior is expressed as stateless transformations:
+
+• No in-place parameter mutation  
+• No optimizer objects  
+• No hidden side effects  
+
+State evolution is entirely driven by composable transition functions.
+
+This mirrors functional dynamical systems used in theoretical ML and neuromorphic models.
+
+---
+
+## 📊 What Is Measured
+
+At every step the system tracks:
+
+• Information drift between learned and true distributions  
+• Prediction error on sampled data  
+• Internal gain dynamics  
+
+This directly measures **how accurately the model infers reality**, not just loss reduction.
+
+---
+
+## 🔬 Key Experimental Observations
+
+Across runs, adaptive gain control consistently:
+
+✅ Converges faster  
+✅ Produces smoother learning curves  
+✅ Resists noise-induced oscillations  
+✅ Stabilizes long-term inference  
+
+While drift-only learning overshoots and fluctuates under noise.
+
+---
+
+## 🧪 Main Takeaways
+
+### 1. Learning benefits from internal control dynamics
+
+Coupling representation updates with a self-regulating sensitivity parameter dramatically improves stability.
+
+---
+
+### 2. Adaptive behavior emerges from simple rules
+
+Second-order style optimization effects arise without complex math or heavy algorithms.
+
+---
+
+### 3. Information convergence matters more than loss alone
+
+The system does not just minimize error — it actively aligns inferred structure with ground truth.
+
+---
+
+### 4. Functional state transitions are sufficient for learning systems
+
+Complex learning behavior can emerge from pure transformations.
+
+---
+
+## 🎯 Scientific Relevance
+
+This project connects ideas from:
+
+• Variational inference  
+• Predictive coding  
+• Adaptive optimization  
+• Control-theoretic learning  
+• Functional programming models of computation  
+
+In a minimal, interpretable simulation.
+
+---
+
+## 📈 Visualization
+
+A real-time GUI displays:
+
+• Information drift comparison  
+• Prediction error trajectories  
+• Gain parameter decay  
+
+Allowing intuitive inspection of learning dynamics.
 
 
