@@ -110,6 +110,7 @@ By decoupling the paths, the system achieves **fast error correction** without a
 - **Provable Guarantees** – Boundedness, monotonic descent, and predictable variance reduction.  
 - **Linear Complexity** – Fully element-wise updates; no matrix inversion needed.
 
+---
 
 ## Provably stable, variance-controlled, and hardware-efficient **online learning primitive**.
 
