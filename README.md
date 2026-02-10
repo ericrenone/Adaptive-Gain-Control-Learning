@@ -117,7 +117,7 @@ Gain adaptation balances error correction against switching cost (energy-efficie
 
 ---
 
-## 📚 Canonical References
+## 📚 References
 
 Robbins, H., & Monro, S. (1951). *A stochastic approximation method.*  
 Kushner, H., & Yin, G. (2003). *Stochastic Approximation and Recursive Algorithms.*  
