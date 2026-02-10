@@ -13,6 +13,7 @@ The **DPFAE** is an adaptive learning system designed for **edge intelligence** 
 - **Provable Variance Suppression** – Reduces steady-state variance (RMSE) by ~2.3× relative to constant-gain methods.
 - **Geometric Optimality** – Approximates Riemannian natural gradient flow, ensuring coordinate invariance under smooth reparameterization.
 - **Stability-Inspired Design** – Adaptive gain and **unit-norm quaternion projection** provide smooth, bounded updates without overfitting.
+- **Updates** - Respect the intrinsic geometry of the parameter space; they are invariant to reparameterizations of the quaternion manifold.
 
 ---
 
