@@ -45,8 +45,11 @@ The **Dual-Path Architecture** separates **fast, reactive updates** from **slow,
 
 #### 🔑 Core Update Identities
 - **Reactive Path (Fast Updates)**: Responds immediately to incoming error signals:
+  
   $$\theta_{t+1}^{(1)} = \theta_t^{(1)} - \eta \cdot \text{grad}_t$$
+  
 - **Adaptive Path (Gain-Controlled)**: Modulates update magnitude via dynamic gain $\alpha$, suppressing variance:
+  
   $$\theta_{t+1}^{(2)} = \theta_t^{(2)} - \eta \cdot \alpha_t \cdot \text{grad}_t$$
   $$\alpha_{t+1} = \max(\alpha_{\min}, \gamma \cdot \alpha_t + f(|\text{grad}_t|))$$
 
