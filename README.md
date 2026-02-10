@@ -142,4 +142,4 @@ DPFAE is a practical realization of modern learning theory for real-time edge in
 
 ---
 
-*DPFAE is a learning engine built for silicon. It replaces the heavy, floating-point math of traditional AI with a stable, dual-path integer logic. By treating learning as a deterministic ergodic process, it guarantees that a tiny edge device can learn from noisy real-world data with the same mathematical rigor as a supercomputer, but at 1/30th the power cost.*
+*DPFAE is a learning engine built for silicon. It replaces the heavy, floating-point math of traditional AI with a stable, dual-path integer logic. By treating learning as a deterministic ergodic process, it shows that a tiny edge device can learn from noisy real-world data with the same mathematical rigor as a supercomputer, but at 1/30th the power cost.*
