@@ -12,13 +12,13 @@ The **DPFAE** is an adaptive learning system designed for **edge intelligence** 
 - **Hardware-Native Efficiency** – Implemented in Q-format integer arithmetic, reducing power consumption by 10–30× compared to floating-point systems.
 - **Provable Variance Suppression** – Reduces steady-state variance (RMSE) by ~2.3× relative to constant-gain methods.
 - **Geometric Optimality** – Approximates Riemannian Natural Gradient flow, ensuring coordinate invariance under smooth reparameterization.
-- **Harmonic-Inspired Stability** – Conceptually informed by harmonic analysis ideas for variance suppression and smooth updates.
+- **Stability-Inspired Design** – Adaptive gain and unit-norm projection provide smooth, bounded updates without overfitting.
 
 ---
 
 ## 🧠 Theoretical Foundations
 
-DPFAE is grounded in four pillars of mathematical inspiration:
+DPFAE is grounded in three pillars of mathematical inspiration:
 
 1. **Information Geometry**  
    The parameter space is treated as a **statistical manifold** \((M, g, \nabla)\). Using the **Fisher-Rao metric**, the optimization path respects the true curvature of the data distribution (Čencov’s Theorem).
@@ -26,16 +26,12 @@ DPFAE is grounded in four pillars of mathematical inspiration:
 2. **Rational Inattention (RI)**  
    Following Sims (2003), DPFAE optimizes a policy balancing utility against information-processing costs. The **Gain Adaptation Path** dynamically regulates sensitivity, analogous to the optimal Boltzmann distribution in RI models.
 
-3. **Harmonic Analysis Inspiration**  
-   While not directly implemented in code, these concepts inform the design of DPFAE for **stable and variance-controlled updates**:  
-   - **Directional Stability (Kakeya-inspired)** – Unit-norm projections help prevent collapse along specific update directions.  
-   - **Smoothness (Local Smoothing analog)** – Adaptive gain acts as a low-pass filter, dampening rapid stochastic fluctuations.  
-   - **Scale-Aware Behavior (Induction on Scales analog)** – Conceptually, the system balances updates across different “frequencies” of stochastic variation.
+3. **Stability-Inspired Design (Harmonic Analogy)**  
+   While not directly implementing harmonic analysis or multi-scale PDEs, these concepts inform DPFAE’s design for stable updates:  
+   - **Directional Stability** – Unit-norm projections keep updates on the unit manifold, avoiding collapse along particular directions.  
+   - **Smoothness** – Adaptive gain acts as a low-pass filter, damping stochastic fluctuations.  
 
-4. **Kronecker-Factored Curvature (K-FAC)**  
-   To maintain \(O(n)\) complexity, DPFAE uses **Kronecker factorization** \((F \approx A \otimes S)\) for second-order curvature approximation, avoiding the \(O(n^3)\) cost of full matrix inversion.
-
-> ⚠️ Note: Sections under Harmonic Analysis are **conceptual inspirations**, not literal implementations of PDEs, wavelets, or Kakeya constructions.
+> ⚠️ Note: These concepts are **design inspirations**, not literal PDE or multi-scale computations.
 
 ---
 
@@ -76,12 +72,12 @@ By decoupling the paths, the system achieves **fast error correction** without a
 
 ## 📊 Comparative Analysis
 
-| Criterion | SGD | Adam | SNN | JEPA | DPFAE (Hybrid) |
-|-----------|-----|------|-----|------|----------------|
+| Criterion | SGD | Adam | SNN | JEPA | DPFAE |
+|-----------|-----|------|-----|------|-------|
 | Convergence | Linear/Sublinear | Sublinear | Noisy | Task-dependent | Geometric (Linear) |
 | Stability | Poor | Moderate | Low | Empirical | Strong (Bounded) |
 | Hardware | FP32/FP16 | FP32 | Specialized | FP16+ | Integer Fixed-Point |
-| Geometry | Euclidean | Heuristic | None | Implicit | Riemannian (Exact) |
+| Geometry | Euclidean | Heuristic | None | Implicit | Riemannian (Approx) |
 | Complexity | O(n) | O(n) | O(n) | O(n) | O(n) |
 
 ---
@@ -109,10 +105,10 @@ By decoupling the paths, the system achieves **fast error correction** without a
 - **Integer-Only Computation** – Deterministic, hardware-friendly, low-power.  
 - **Variance Suppression** – Adaptive gain reduces RMSE by ~2.3× versus constant-gain methods.  
 - **Geometry-Aware Optimization** – Riemannian natural gradient ensures coordinate-invariant updates.  
-- **Harmonic-Inspired Stability** – Conceptually informs smooth, bounded updates.  
+- **Stability-Inspired Design** – Smooth, bounded updates without PDEs or multi-scale computations.  
 - **Hardware-Ready** – Compatible with FPGA, ASIC, and neuromorphic designs.  
 - **Provable Guarantees** – Boundedness, monotonic descent, and predictable variance reduction.  
-- **Linear Complexity** – K-FAC approximation avoids \(O(n^3)\) cost.
+- **Linear Complexity** – Fully element-wise updates; no matrix inversion needed.
 
 > Provably stable, variance-controlled, and hardware-efficient **online learning primitive**.
 
@@ -123,5 +119,4 @@ By decoupling the paths, the system achieves **fast error correction** without a
 1. Sims, C. A. (2003). *Implications of rational inattention*. Journal of Monetary Economics.  
 2. Čencov, N. N. (1982). *Statistical Decision Rules and Optimal Inference*.  
 3. Martens, J., & Grosse, R. (2015). *Optimizing neural networks with Kronecker-factored approximate curvature*. ICML.  
-4. Kakeya, S. (1917). *On minimum directional coverage of sets*.  
 
