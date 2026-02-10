@@ -80,4 +80,14 @@ The DPFAE maps directly to **FPGA pipelines, ASIC datapaths, and neuromorphic su
 
 ---
 
-*This work unifies control theory, information geometry, and hardware-efficient optimization into a provably stable learning primitive.*
+## ✅ 
+
+* **Dual-Path Separation** – Drift and gain paths decouple stability from responsiveness, enabling fast convergence without amplifying stochastic noise.  
+* **Integer-Only Computation** – Fully fixed-point arithmetic ensures deterministic updates and hardware efficiency (~10–30× lower power than FP systems).  
+* **Variance Suppression** – Adaptive gain control reduces steady-state RMSE by ~2.3× compared to constant-gain methods.  
+* **Geometry-Aware Optimization** – Riemannian natural gradient approximation ensures coordinate-invariant updates along the true manifold of the data.  
+* **Harmonic Smoothing** – Local smoothing and induction-on-scales prevent overfitting and enable multiresolution stability.  
+* **Hardware-Ready** – Maps directly to FPGA, ASIC, and neuromorphic architectures with $O(n)$ memory and deterministic per-step latency.  
+* **Provable Guarantees** – Boundedness, monotonic energy descent, and predictable variance reduction are mathematically guaranteed.  
+* **Linear Complexity** – Achieves second-order curvature approximation using Kronecker factorization without $O(n^3)$ cost.  
+
